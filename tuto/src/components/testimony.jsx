@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './testimony.css'
 export default function Testimony() {
     const testimonies = [
         {
@@ -28,52 +28,50 @@ export default function Testimony() {
 
     return (
         <>
-            <div className="h-[90vh] w-full relative mt-[600px] lg:mt-0">
-                <h1 className="text-gray-600 text-center text-4xl underline underline-offset-8 font-extrabold">
-                    _-Testimony-_
-                </h1>
+            <div className="testimony-container">
+                <h1 className="testimony-title">_-Testimony-_</h1>
                 <div>
-                    <div className="flex flex-col items-center ml-10 md:ml-0 my-8">
-                        <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 transition-all duration-300 flex flex-col items-center">
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0'}}>
+                        <div className="testimony-card">
                             <img
                                 src={testimonies[current].img}
                                 alt={testimonies[current].name}
-                                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-gray-200"
+                                className="testimony-img"
                             />
-                            <p className="text-gray-700 text-lg italic mb-4">"{testimonies[current].text}"</p>
-                            <div className="flex items-center justify-between w-full">
-                                <span className="font-bold text-gray-900">{testimonies[current].name}</span>
-                                <span className="text-sm text-gray-500">{testimonies[current].role}</span>
+                            <p className="testimony-text">"{testimonies[current].text}"</p>
+                            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%'}}>
+                                <span className="testimony-name">{testimonies[current].name}</span>
+                                <span className="testimony-role">{testimonies[current].role}</span>
                             </div>
                         </div>
-                        <div className="flex gap-4 mt-4">
+                        <div style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
                             <button
                                 onClick={prev}
-                                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+                                className="testimony-nav-btn"
                                 aria-label="Previous"
                             >
                                 &#8592;
                             </button>
                             <button
                                 onClick={next}
-                                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
+                                className="testimony-nav-btn"
                                 aria-label="Next"
                             >
                                 &#8594;
                             </button>
                         </div>
-                        <div className="flex justify-center mt-2 gap-2">
+                        <div style={{display: 'flex', justifyContent: 'center', marginTop: '1rem', gap: '0.5rem'}}>
                             {testimonies.map((_, idx) => (
                                 <span
                                     key={idx}
-                                    className={`h-2 w-2 rounded-full ${idx === current ? "bg-gray-800" : "bg-gray-300"}`}
+                                    className={`testimony-indicator${idx === current ? ' active' : ''}`}
                                 />
                             ))}
                         </div>
                     </div>
                 </div>
-                <p className="text-center text-wrap px-10 lg:px-2">
-                    -- Here is a section resvered to all <br />
+                <p style={{textAlign: 'center', padding: '0 1rem', marginTop: '2rem'}}>
+                    -- Here is a section reserved to all <br />
                     -- testimony of clients and collaborators and dear compliments --
                 </p>
             </div>

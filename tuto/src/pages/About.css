@@ -1,0 +1,105 @@
+/* Futuristic UI/UX for About.jsx */
+.about-container {
+  width: 100%;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  padding: 3rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-info-section {
+  background: rgba(255,255,255,0.92);
+  border-radius: 2.5rem;
+  box-shadow: 0 12px 48px rgba(59,130,246,0.13);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3.5rem;
+  align-items: flex-start;
+  max-width: 950px;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  border: 1.5px solid #e0e7ff;
+}
+
+.about-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-info-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #2563eb;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(59,130,246,0.10);
+}
+.about-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-info-list li {
+  font-size: 1.18rem;
+  color: #334155;
+  margin-bottom: 1rem;
+  padding-left: 2.2rem;
+  border-left: 3px solid #e0e7ff;
+  position: relative;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.about-info-list li::before {
+  content: '\\2022';
+  position: absolute;
+  left: 0.7rem;
+  top: 0.7rem;
+  font-size: 1.2rem;
+  color: #2563eb;
+  font-weight: bold;
+  opacity: 0.7;
+}
+.about-info-list li:hover {
+  background: #f1f5f9;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+}
+.about-map-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-map {
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.13);
+  border: none;
+  width: 100%;
+  max-width: 420px;
+  min-height: 200px;
+}
+
+@media (max-width: 900px) {
+  .about-info-section {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.10);
+  }
+  .about-map-container {
+    margin-top: 1.5rem;
+  }
+  .about-info-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+}

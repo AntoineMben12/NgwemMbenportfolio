@@ -1,0 +1,78 @@
+
+/* Modern CSS for skills.jsx */
+.skills-container {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.13);
+  backdrop-filter: blur(8px);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInSkills 1.2s ease;
+}
+
+@keyframes fadeInSkills {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skills-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(59,130,246,0.10);
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.skills-item {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.10);
+  padding: 1.2rem 2rem;
+  color: #334155;
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.skills-item:hover {
+  box-shadow: 0 8px 24px rgba(59,130,246,0.15);
+  transform: translateY(-2px) scale(1.04);
+}
+.skills-item i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 8px rgba(59,130,246,0.10));
+}
+.skills-html i { color: #f97316; }
+.skills-css i { color: #2563eb; }
+.skills-js i { color: #facc15; }
+.skills-react i { color: #38bdf8; }
+.skills-node i { color: #22c55e; }
+.skills-git i { color: #f97316; }
+
+@media (max-width: 700px) {
+  .skills-list {
+    gap: 1rem;
+  }
+  .skills-title {
+    font-size: 1.5rem;
+  }
+  .skills-item {
+    padding: 1rem 1rem;
+    font-size: 1rem;
+  }
+}

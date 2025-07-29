@@ -1,12 +1,14 @@
+
+import './aboutHero.css';
 export default function AboutHero() {
-    
-    return(
-    <>
-      <div className="h-auto w-full">
-        <div className="h-screen w-full flex justify-center pl-6 items-center bgimg">
-          <p className="font-mono text-7xl font-extrabold text-white"><b>ABOUT</b></p>
-        </div>
+  return (
+    <div className="about-hero-container">
+      <div className="about-hero-bg">
+        <p className="about-hero-title">
+          <span className="about-hero-icon" aria-label="info" title="About"><i className="fa-solid fa-circle-info"></i></span>
+          <b>ABOUT</b>
+        </p>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,81 @@
+
+/* Contact.css - Pure CSS for Contact.jsx semantic classes */
+
+.contact-hero {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/Image004.png') center/cover no-repeat, linear-gradient(135deg, #3b82f6 0%, #0f172a 100%);
+}
+
+.contact-title {
+  font-family: 'Fira Mono', monospace;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.contact-form {
+  max-width: 420px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-label {
+  display: block;
+  color: #334155;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #1e293b;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.contact-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px #3b82f633;
+}
+
+.contact-btn {
+  width: 100%;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.contact-btn:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 2.2rem;
+  }
+  .contact-form {
+    padding: 1rem;
+  }
+}

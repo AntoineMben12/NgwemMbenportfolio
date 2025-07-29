@@ -1,10 +1,12 @@
+
 import Footer from "../components/footer";
 import SideBar from "../components/SideBar";
 import RightSidBar from "../components/TopBar";
-import React from "react";  
+import React from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import './Contact.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,7 +21,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      fetch( `${'http://localhost:5000'}/api/forms`, {
+      fetch( `${'https://ngwemmbenbackend.onrender.com'}/api/forms`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,22 +45,22 @@ export default function Contact() {
   };
   return (
     <>
-    <SideBar/>
-    <RightSidBar/>
-    <div className="h-screen w-full flex justify-center items-center bgimg">
-      <p className="font-mono text-7xl font-extrabold text-white"><b>CONTACT</b></p>
+    <SideBar />
+    <RightSidBar />
+    <div className="contact-hero">
+      <p className="contact-title"><b>CONTACT</b></p>
     </div>
     <div>
       <form 
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto bg-white p-8 rounded shadow-md space-y-4"
+        className="contact-form"
       >
         <div>
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+          <label className="contact-label" htmlFor="name">
             Name
           </label>
           <input
-            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+            className="contact-input"
             type="text"
             id="name"
             name="name"
@@ -68,11 +70,11 @@ export default function Contact() {
           />
         </div>
         <div>
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+          <label className="contact-label" htmlFor="email">
             Email
           </label>
           <input
-            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+            className="contact-input"
             type="email"
             id="email"
             name="email"
@@ -82,11 +84,11 @@ export default function Contact() {
           />
         </div>
         <div>
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="message">
+          <label className="contact-label" htmlFor="message">
             Message
           </label>
           <textarea
-            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+            className="contact-input"
             id="message"
             name="message"
             rows="4"
@@ -97,14 +99,14 @@ export default function Contact() {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+          className="contact-btn"
         >
           Send
         </button>
       </form>
       <ToastContainer />
     </div>
-    <Footer/>
+    <Footer />
     </>
   );
 }

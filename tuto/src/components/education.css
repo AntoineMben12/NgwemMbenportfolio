@@ -1,0 +1,81 @@
+
+/* Modern CSS for education.jsx */
+.education-container {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.13);
+  backdrop-filter: blur(8px);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.education-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(59,130,246,0.10);
+}
+.education-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+.education-image {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.10);
+  margin-right: 2rem;
+}
+.education-details {
+  flex: 1;
+  background: rgba(59,130,246,0.07);
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+  font-size: 1.15rem;
+  color: #334155;
+  line-height: 1.7;
+}
+.education-details p {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.education-details p::before {
+  content: '\f19d'; /* fa-graduation-cap */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: #2563eb;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+  .education-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .education-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .education-details {
+    padding: 1rem 0.5rem;
+  }
+  .education-title {
+    font-size: 1.5rem;
+  }
+}

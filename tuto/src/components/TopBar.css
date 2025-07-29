@@ -1,0 +1,26 @@
+
+/* TopBar.css - updated for semantic classes and Tailwind-like properties */
+.topbar-container {
+  width: 100%;
+  background: #0f172a;
+  color: #fff;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.topbar-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #fff;
+  background: #0f172a;
+  padding: 0.5rem 2rem;
+  border-radius: 12px;
+  letter-spacing: 2px;
+}

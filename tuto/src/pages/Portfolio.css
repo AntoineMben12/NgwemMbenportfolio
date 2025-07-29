@@ -1,0 +1,76 @@
+/* Pure CSS for Portfolio.jsx */
+.portfolio-main {
+  min-height: 100vh;
+  width: 100%;
+  background: #f9fafb;
+  padding: 3rem 1rem;
+}
+.portfolio-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #2d3748;
+}
+.portfolio-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.portfolio-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-image {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+}
+.portfolio-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1a202c;
+}
+.portfolio-card-desc {
+  color: #374151;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.portfolio-card-link {
+  display: inline-block;
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background: #1a202c;
+  color: white;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.portfolio-card-link:hover {
+  background: #2d3748;
+}

@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import SideBar from "../components/SideBar";
 import RightSidBar from "../components/TopBar";
+import './dashboard.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -23,7 +24,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (isAdmin) {
-      fetch("http://localhost:5000/api/forms")
+      fetch("https://ngwemmbenbackend.onrender.com/api/forms")
         .then((res) => res.json())
         .then((data) => {
           setMessages(data);
@@ -58,7 +59,7 @@ export default function Dashboard() {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white text-2xl">
+      <div className="dashboard-access-denied">
         Access denied. Admins only.
       </div>
     );
@@ -68,34 +69,34 @@ export default function Dashboard() {
     <>
       <SideBar />
       <RightSidBar />
-      <div className="min-h-screen flex flex-col items-center justify-start bg-black pt-24 px-4">
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow p-6 mb-8">
+      <div className="dashboard-main">
+        <div className="dashboard-chart-container">
           <Bar data={data} options={options} />
         </div>
-        <div className="w-full max-w-4xl bg-white rounded-lg shadow p-6">
-          <h2 className="text-2xl font-bold mb-4">Contact Messages</h2>
+        <div className="dashboard-messages-container">
+          <h2 className="dashboard-messages-title">Contact Messages</h2>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
-            <div className="text-red-500">{error}</div>
+            <div className="dashboard-error">{error}</div>
           ) : messages.length === 0 ? (
             <div>No messages found.</div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full text-left text-sm">
+            <div className="dashboard-table-wrapper">
+              <table className="dashboard-table">
                 <thead>
                   <tr>
-                    <th className="px-4 py-2">Name</th>
-                    <th className="px-4 py-2">Email</th>
-                    <th className="px-4 py-2">Message</th>
+                    <th className="dashboard-table-header">Name</th>
+                    <th className="dashboard-table-header">Email</th>
+                    <th className="dashboard-table-header">Message</th>
                   </tr>
                 </thead>
                 <tbody>
                   {messages.map((msg, idx) => (
-                    <tr key={msg._id || idx} className="border-t">
-                      <td className="px-4 py-2">{msg.name}</td>
-                      <td className="px-4 py-2">{msg.email}</td>
-                      <td className="px-4 py-2">{msg.message}</td>
+                    <tr key={msg._id || idx} className="dashboard-table-row">
+                      <td className="dashboard-table-cell">{msg.name}</td>
+                      <td className="dashboard-table-cell">{msg.email}</td>
+                      <td className="dashboard-table-cell">{msg.message}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -1,7 +1,26 @@
+/* Pure CSS for About.jsx converted from TailwindCSS */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem; /* 7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  height: 60vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+  }
+}
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
-@import "tailwindcss";
-
+@import "base";
+@import "components";
+@import "utilities";
 body {
   font-family: "dancing script", "caveat", sans-serif;
 }

@@ -1,6 +1,7 @@
 import Footer from "../components/footer";
 import SideBar from "../components/SideBar";
 import RightSidBar from "../components/TopBar";
+import './Portfolio.css';
 
 export default function Portfolio() {
   const projects = [
@@ -28,20 +29,20 @@ export default function Portfolio() {
     <>
       <RightSidBar/>
       <SideBar/>
-      <div className="min-h-screen w-full bg-gray-50 py-12 px-4">
-        <h1 className="text-4xl font-extrabold text-center mb-10 text-gray-800">My Projects</h1>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="portfolio-main">
+        <h1 className="portfolio-title">My Projects</h1>
+        <div className="portfolio-grid">
           {projects.map((project, idx) => (
-            <div key={idx} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-              <img src={project.image} alt={project.title} className="h-48 w-full object-cover" />
-              <div className="p-6 flex-1 flex flex-col">
-                <h2 className="text-2xl font-bold mb-2 text-gray-900">{project.title}</h2>
-                <p className="text-gray-700 mb-4 flex-1">{project.description}</p>
+            <div key={idx} className="portfolio-card">
+              <img src={project.image} alt={project.title} className="portfolio-image" />
+              <div className="portfolio-card-content">
+                <h2 className="portfolio-card-title">{project.title}</h2>
+                <p className="portfolio-card-desc">{project.description}</p>
                 <a
+                  className="portfolio-card-link"
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-auto px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800 transition font-semibold text-center"
                 >
                   View on GitHub
                 </a>

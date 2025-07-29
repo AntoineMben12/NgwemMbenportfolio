@@ -1,0 +1,142 @@
+
+/* Modern CSS for resume.jsx */
+.resume-container {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.13);
+  backdrop-filter: blur(8px);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInResume 1.2s ease;
+}
+
+@keyframes fadeInResume {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resume-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(59,130,246,0.10);
+}
+.resume-intro {
+  font-size: 1.15rem;
+  color: #334155;
+  background: rgba(59,130,246,0.07);
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.resume-name {
+  color: #2563eb;
+  font-weight: 700;
+}
+.resume-school {
+  color: #38bdf8;
+  font-weight: 700;
+}
+.resume-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.resume-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(59,130,246,0.07);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+  padding: 2rem 1rem;
+}
+.resume-row-1 {
+  flex-direction: row;
+}
+.resume-row-2 {
+  flex-direction: row-reverse;
+}
+.resume-img-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.10);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resume-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.resume-details {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #334155;
+  line-height: 1.7;
+}
+.resume-link {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.resume-link:hover {
+  color: #38bdf8;
+}
+.resume-year {
+  color: #f59e42;
+  font-weight: 700;
+}
+.resume-btn {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.resume-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .resume-title {
+    font-size: 1.5rem;
+  }
+  .resume-container {
+    padding: 1rem 0.5rem;
+  }
+  .resume-row {
+    flex-direction: column !important;
+    gap: 1rem;
+    padding: 1rem 0.9rem;
+  }
+  .resume-img-container {
+    width: 100px;
+    height: 100px;
+  }
+  .resume-details {
+    font-size: 1rem;
+  }
+}
