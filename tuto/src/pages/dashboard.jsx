@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (isAdmin) {
-      fetch("http://localhost:5000/api/forms")
+      fetch("https://ngwemmbenbackend.onrender.com/api/forms")
         .then((res) => res.json())
         .then((data) => {
           setMessages(data);
