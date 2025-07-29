@@ -19,7 +19,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      fetch( `${'http://localhost:5000'}/api/forms`, {
+      fetch( `${'https://ngwemmbenbackend.onrender.com'}/api/forms`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
