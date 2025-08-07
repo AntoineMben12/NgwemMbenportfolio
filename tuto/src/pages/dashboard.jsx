@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -16,26 +17,28 @@ import './dashboard.css';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Dashboard() {
-  // Placeholder admin check (replace with real auth logic)
-  const isAdmin = true; // Set to false to simulate non-admin
+  const navigate = useNavigate();
+  const isAdmin = !!localStorage.getItem('adminToken');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (isAdmin) {
-      fetch("https://ngwemmbenbackend.onrender.com/api/forms")
-        .then((res) => res.json())
-        .then((data) => {
-          setMessages(data);
-          setLoading(false);
-        })
-        .catch(() => {
-          setError("Failed to fetch messages");
-          setLoading(false);
-        });
+    if (!isAdmin) {
+      navigate('/login');
+      return;
     }
-  }, [isAdmin]);
+    fetch("https://ngwemmbenbackend.onrender.com/api/forms")
+      .then((res) => res.json())
+      .then((data) => {
+        setMessages(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Failed to fetch messages");
+        setLoading(false);
+      });
+  }, [isAdmin, navigate]);
 
   // Example data for the graph (replace with real stats if available)
   const data = {
@@ -57,13 +60,7 @@ export default function Dashboard() {
     },
   };
 
-  if (!isAdmin) {
-    return (
-      <div className="dashboard-access-denied">
-        Access denied. Admins only.
-      </div>
-    );
-  }
+  // ...existing code...
 
   return (
     <>
