@@ -1,9 +1,22 @@
+import { useEffect, useRef } from 'react';
 import Footer from "../components/footer";
 import SideBar from "../components/SideBar";
 import RightSidBar from "../components/TopBar";
+import { 
+  portfolioCardsAnimation, 
+  portfolioCardHover, 
+  pageTransitionIn,
+  textRevealAnimation,
+  scrollRevealAnimation
+} from '../lib/gsapAnimations';
 import './Portfolio.css';
 
 export default function Portfolio() {
+  const pageRef = useRef(null);
+  const titleRef = useRef(null);
+  const cardsRef = useRef([]);
+  const footerRef = useRef(null);
+
   const projects = [
     {
       title: "React Weather App",
@@ -25,15 +38,65 @@ export default function Portfolio() {
     },
   ];
 
+  useEffect(() => {
+    const page = pageRef.current;
+    const title = titleRef.current;
+    const cards = cardsRef.current.filter(Boolean);
+    const footer = footerRef.current;
+
+    // Page entrance animation
+    if (page) {
+      pageTransitionIn(page);
+    }
+
+    // Title text reveal animation
+    if (title) {
+      setTimeout(() => {
+        textRevealAnimation(title);
+      }, 400);
+    }
+
+    // Portfolio cards animation
+    if (cards.length > 0) {
+      setTimeout(() => {
+        portfolioCardsAnimation(cards);
+      }, 600);
+
+      // Add hover effects to each card
+      cards.forEach((card) => {
+        if (card) {
+          const hoverTl = portfolioCardHover(card);
+          card.addEventListener('mouseenter', () => hoverTl.play());
+          card.addEventListener('mouseleave', () => hoverTl.reverse());
+        }
+      });
+    }
+
+    // Footer scroll reveal
+    if (footer) {
+      setTimeout(() => {
+        scrollRevealAnimation([footer], "up");
+      }, 1000);
+    }
+  }, []);
+
   return(
-    <>
+    <div ref={pageRef} className="portfolio-page">
       <RightSidBar/>
       <SideBar/>
       <div className="portfolio-main">
-        <h1 className="portfolio-title">My Projects</h1>
+        <h1 ref={titleRef} className="portfolio-title">My Projects</h1>
         <div className="portfolio-grid">
           {projects.map((project, idx) => (
-            <div key={idx} className="portfolio-card">
+            <div 
+              key={idx} 
+              className="portfolio-card"
+              ref={(el) => {
+                if (el && !cardsRef.current.includes(el)) {
+                  cardsRef.current[idx] = el;
+                }
+              }}
+            >
               <img src={project.image} alt={project.title} className="portfolio-image" />
               <div className="portfolio-card-content">
                 <h2 className="portfolio-card-title">{project.title}</h2>
@@ -51,7 +114,9 @@ export default function Portfolio() {
           ))}
         </div>
       </div>
-      <Footer/>
-    </>
+      <div ref={footerRef}>
+        <Footer/>
+      </div>
+    </div>
   );
 }
