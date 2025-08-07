@@ -5,13 +5,11 @@ require('dotenv').config();
 // Route to handle form submission
 const formRoute = require('./routes/formRoute');
 
-const adminRoute = require('./routes/adminRoute');
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/forms', formRoute);
 
-app.use('/api/admin', adminRoute);
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
